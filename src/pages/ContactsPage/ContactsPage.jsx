@@ -6,11 +6,11 @@ import { selectError, selectLoading } from "../../redux/contacts/selectors";
 
 import css from "./ContactsPage.module.css";
 
-import ContactList from "../ContactList/ContactList";
-import SearchBox from "../SearchBox/SearchBox";
-import ContactForm from "../ContactForm/ContactForm";
-import Loader from "../Loader/Loader";
-import Error from "../Error/Error";
+import ContactList from "../../components/ContactList/ContactList"
+import SearchBox from "../../components/SearchBox/SearchBox";
+import ContactForm from "../../components/ContactForm/ContactForm";
+import Loader from "../../components/Loader/Loader";
+import Error from "../../components/Error/Error";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
