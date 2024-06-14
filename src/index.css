@@ -3,10 +3,9 @@
 }
 
 body{
-  padding: 20px;
   margin: 0;
 
-  background-color: #ba88f85d;
+  background-color: #86c9ba;
 }
 
 ul{
@@ -17,4 +16,8 @@ padding: 0;
 
 p, h1, h2, h3{
   margin: 0;
+}
+
+a{
+  text-decoration: none;
 }

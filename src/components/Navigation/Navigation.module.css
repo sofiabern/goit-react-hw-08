@@ -1,0 +1,15 @@
+.list{
+    display: flex;
+    gap: 6px;
+}
+
+.link{
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    transition: color 200ms ease-in-out;
+}
+
+.link:hover{
+    color: #ba88f8;
+}

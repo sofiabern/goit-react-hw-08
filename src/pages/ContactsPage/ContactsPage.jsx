@@ -23,7 +23,7 @@ export default function ContactsPage() {
 
   return (
     <div className={css.wrapper}>
-      <h1 className={css.title}>Phonebook</h1>
+      <h1 className={css.title}>My contacts</h1>
       <ContactForm />
       <SearchBox />
       <ContactList />

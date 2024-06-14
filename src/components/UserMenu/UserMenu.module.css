@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.text{
+    font-family: Roboto, sans-serif;
+    color:#ffffff;
+    font-size: 18px;
+}
+
+.accent{
+    font-weight: 700;
+    color: #ba88f8;
+    
+}
+
+.btn {
+  color: #ffffff;
+
+  padding: 6px 8px;
+  align-self: center;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  background-color: #fb1500;
+
+  cursor: pointer;
+
+  transition: transform 200ms ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+transform: scale(1.2);
+}

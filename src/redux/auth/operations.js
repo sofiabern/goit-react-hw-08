@@ -52,7 +52,7 @@ export const refreshUser = createAsyncThunk(
     const reduxState = thunkAPI.getState();
     setAuthHeader(reduxState.auth.token);
 
-    const res = await axios.get("/users/me");
+    const res = await axios.get("/users/current");
     return res.data;
   },
   {
