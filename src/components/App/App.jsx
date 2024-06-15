@@ -9,6 +9,7 @@ import { selectIsRefreshing } from "../../redux/auth/selectors";
 import Loader from "../Loader/Loader";
 
 
+
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const RegisterPage = lazy(() =>
   import("../../pages/RegisterPage/RegisterPage")
@@ -42,11 +43,11 @@ export default function App() {
           <Route
             path="/login"
             element={
-              <RestrictedRoute component={<LoginPage />} redirectTo="/tasks" />
+              <RestrictedRoute component={<LoginPage />} redirectTo="/contacts" />
             }
           />
           <Route
-            path="/tasks"
+            path="/contacts"
             element={
               <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
             }

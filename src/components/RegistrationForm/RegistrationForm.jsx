@@ -7,6 +7,8 @@ import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
 
 import css from "./RegistrationForm.module.css";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegistrationSchema = Yup.object().shape({
   name: Yup.string()
@@ -30,8 +32,14 @@ export default function RegistrationForm() {
   const handleSubmit = (values, actions) => {
     dispatch(register(values))
       .unwrap()
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+      .then(data => {
+
+        toast.success('Registration was successful!');
+      })
+      .catch(err => {
+
+        toast.error('An error occurred during registration');
+      });
 
     actions.resetForm();
   };
@@ -47,6 +55,7 @@ export default function RegistrationForm() {
       validationSchema={RegistrationSchema}
     >
       <Form autoComplete="off" className={css.form}>
+
         <div className={css["field-wrapper"]}>
           <label className={css.label} htmlFor={`${fieldId}-name`}>
             Username
