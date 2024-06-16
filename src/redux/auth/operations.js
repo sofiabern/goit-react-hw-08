@@ -1,8 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-
+import "react-toastify/dist/ReactToastify.css";
 
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
@@ -62,8 +61,7 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get("/users/current");
       return res.data;
     } catch (error) {
-      toast.error("Oops! Something went wrong");
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(null);
     }
   },
   {

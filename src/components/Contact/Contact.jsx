@@ -7,12 +7,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operations";
+import { deleteContact, updateContact } from "../../redux/contacts/operations";
 
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
 function Contact({ contact }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [editedContact, setEditedContact] = useState({ ...contact });
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -22,8 +23,13 @@ function Contact({ contact }) {
     setModalIsOpen(false);
   };
 
-
   const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEditedContact({ ...editedContact, [name]: value });
+    console.log(editedContact)
+  };
 
   const handleDeleteContact = () => {
     dispatch(deleteContact(contact.id))
@@ -33,24 +39,55 @@ function Contact({ contact }) {
       .catch(() => {
         toast.error("Failed to delete contact.");
       });
-      closeModal();
+    closeModal();
   };
+
+  const handleUpdateContact = () => {
+    dispatch(
+      updateContact({ contactId: editedContact.id, updatedContact: editedContact })
+    ).unwrap()
+      .then(() => {
+        toast.success("Contact updated successfully!");
+        closeModal();
+      })
+      .catch((error) => {
+        console.log(error)
+        toast.error("Failed to update contact.");
+      });
+  };
+
   return (
     <div className={css["contact-wrapper"]}>
       <div className={css["contact-info"]}>
-        <p className={css["contact-text"]}>
+        <div className={css["input-wrapper"]}>
           <FaUser className={css.icon} color="#ba88f8" />
-          {contact.name}
-        </p>
-        <p className={css["contact-text"]}>
+          <input
+            className={css.input}
+            type="text"
+            name="name"
+            value={editedContact.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={css["input-wrapper"]}>
           <FaPhone className={css.icon} color="#ba88f8" />
-          {contact.number}
-        </p>
+          <input
+            className={css.input}
+            type="text"
+            name="number"
+            value={editedContact.number}
+            onChange={handleChange}
+          />
+        </div>
       </div>
-      <button className={css.button} onClick={openModal}>
-      <RxCross2 />
-      </button>
-
+        <button className={`${css.button} ${css["button-edit"]}`}
+          onClick={handleUpdateContact}
+        >
+          Save changes
+        </button>
+        <button className={`${css.button} ${css["button-delete"]}`} onClick={openModal}>
+          <RxCross2/>
+        </button>
       <ConfirmationModal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
