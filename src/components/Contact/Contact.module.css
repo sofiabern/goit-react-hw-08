@@ -1,49 +1,55 @@
 .contact-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    padding: 12px;
-    width: 268px;
+  padding: 12px;
+  width: 268px;
 
-    border: 2px solid #ba88f8;
-    border-radius: 6px;
-    background-color: #ffffff;
+  border: 2px solid #ba88f8;
+  border-radius: 6px;
+  background-color: #ffffff;
+
+  position: relative;
 }
 
 .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .contact-text {
-    display: flex;
-    align-items: center;
+  font-family: Roboto, sans-serif;
+  color: #2c2c2c;
+  display: flex;
+  align-items: center;
 }
 
 .icon {
-    margin-right: 8px
+  margin-right: 8px;
 }
 
 .button {
-    color: #ffffff;
+  color: #ffffff;
 
-    padding: 4px 6px;
+  display: flex;
+  padding: 4px 4px;
 
-    border: 1px solid transparent;
-    border-radius: 12px;
+  border: 1px solid transparent;
+  border-radius: 50%;
 
-    background-color: #ba88f8;
+  background-color: #ba88f8;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: box-shadow 200ms ease-in-out;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+
+  transition: box-shadow 200ms ease-in-out;
 }
 
-.button:hover, .button:focus{
-    box-shadow: 
-    0 0 10px #00ffc380,
-    0 0 20px #00ffc3b2,
-    0 0 30px #00ffc3dc;
+.button:hover {
+  box-shadow: 0 0 10px #00ffc380, 0 0 20px #00ffc3b2, 0 0 30px #00ffc3dc;
 }

@@ -8,7 +8,7 @@ import { refreshUser } from "../../redux/auth/operations";
 import { selectIsRefreshing } from "../../redux/auth/selectors";
 import Loader from "../Loader/Loader";
 
-
+import { ToastContainer } from "react-toastify";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const RegisterPage = lazy(() =>
@@ -28,10 +28,10 @@ export default function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Loader/>
+    <Loader />
   ) : (
     <Layout>
-      <Suspense fallback={ <Loader/>}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
@@ -43,7 +43,10 @@ export default function App() {
           <Route
             path="/login"
             element={
-              <RestrictedRoute component={<LoginPage />} redirectTo="/contacts" />
+              <RestrictedRoute
+                component={<LoginPage />}
+                redirectTo="/contacts"
+              />
             }
           />
           <Route
@@ -54,6 +57,7 @@ export default function App() {
           />
         </Routes>
       </Suspense>
+      <ToastContainer />
     </Layout>
   );
 }

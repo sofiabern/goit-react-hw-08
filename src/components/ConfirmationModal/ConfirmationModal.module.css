@@ -1,0 +1,32 @@
+.text{
+    font-family: Roboto, sans-serif;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.btn-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.btn {
+    color: #ffffff;
+    font-size: 18px;
+  
+    padding: 6px 8px;
+  
+    border: 1px solid transparent;
+    border-radius: 16px;
+  
+    background-color: #fb1500;
+  
+    cursor: pointer;
+  
+    transition: transform 200ms ease-in-out;
+  }
+  
+  .btn:hover,
+  .btn:focus {
+  transform: scale(1.2);
+  }
