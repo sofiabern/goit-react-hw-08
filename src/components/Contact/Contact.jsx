@@ -13,7 +13,10 @@ import ConfirmationModal from "../ConfirmationModal/ConfirmationModal";
 
 function Contact({ contact }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [initialName, setInitialName] = useState(contact.name);
+  const [initialNumber, setInitialNumber] = useState(contact.number);
   const [editedContact, setEditedContact] = useState({ ...contact });
+  const { id, name, number } = editedContact;
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -43,8 +46,26 @@ function Contact({ contact }) {
   };
 
   const handleUpdateContact = () => {
+    if (editedContact.name === contact.name && editedContact.number === contact.number) {
+      toast.warning("No changes detected.");
+      return;
+    }
+    
+    if (!editedContact.name || !editedContact.number) {
+      toast.error("Name and number cannot be empty.");
+      setEditedContact({
+        ...editedContact,
+        name: editedContact.name || initialName,
+        number: editedContact.number || initialNumber,
+      });
+      return;
+    }
+
     dispatch(
-      updateContact({ contactId: editedContact.id, updatedContact: editedContact })
+      updateContact({
+        contactId: id,
+        updatedContact: { name, number }
+      })
     ).unwrap()
       .then(() => {
         toast.success("Contact updated successfully!");
@@ -83,7 +104,7 @@ function Contact({ contact }) {
         <button className={`${css.button} ${css["button-edit"]}`}
           onClick={handleUpdateContact}
         >
-          Save changes
+          Save
         </button>
         <button className={`${css.button} ${css["button-delete"]}`} onClick={openModal}>
           <RxCross2/>

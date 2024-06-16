@@ -1,11 +1,12 @@
 .list{
     display: flex;
-    gap: 6px;
+    gap: 12px;
 }
 
 .link{
     font-family: Roboto, sans-serif;
     font-size: 18px;
+    font-weight: 700;
     color: #ffffff;
     transition: color 200ms ease-in-out;
 }

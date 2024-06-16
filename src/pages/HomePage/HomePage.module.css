@@ -1,6 +1,7 @@
-.text-wrapper{
+.text{
     width: 95%;
     margin: 0 auto;
     font-family: Roboto, sans-serif;
     color: #ffffff;
+    font-size: 18px;
 }

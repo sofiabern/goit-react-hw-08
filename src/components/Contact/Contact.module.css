@@ -15,7 +15,7 @@
 
 .contact-info {
   display: flex;
-  width: 60%;
+  width: 70%;
   flex-direction: column;
   gap: 8px;
 }
@@ -73,7 +73,7 @@ button{
 }
 
 .button-edit{
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   max-width: 54px;
   padding: 4px;
